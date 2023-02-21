@@ -1,10 +1,4 @@
-# yaml 配置实例
-# docker compose up --build （代表执行build指定的dockerfile文件）
-# docker compose up --no-build （代表不执行build）
-# container_name可以当ip地址用，用container_name替换111.111.11.1
-# volumes 容器映射到主机的目录文件或文件夹
-# environment特定入mysql需要设置密码
-version: '2'
+version: '3.3'
 name: 'hyx-docker-1'
 services:
     nginx:
@@ -13,7 +7,7 @@ services:
         ports: 
             - "80:80"
         volumes:
-            - "D:/o2orepair/o2orepair:/var/www/html"
+            - "./www:/var/www/html"
             - "./etc/nginx/conf.d:/etc/nginx/conf.d"
             - "./etc/nginx/nginx.conf:/etc/nginx/nginx.conf"
             - "./etc/redis/redis.conf:/etc/redis/redis.conf"
@@ -22,14 +16,15 @@ services:
             dockerfile: Dockerfile
     mysql:
         container_name: db
-        image: mysql:5.7.22
+        image: "mysql:5.7.22"
         ports:
             - "3306:3306"
         environment:
-            MYSQL_DATABASE: laravel
-            MYSQL_ROOT_PASSWORD: 123456
-        # volumes:
-        #     - "./mysql/my.cnf:/etc/mysql/my.cnf"
+            MYSQL_DATABASE: "laravel"
+            MYSQL_ROOT_PASSWORD: "q0arAd9l1x"
+        volumes:
+            - "./mysql/my.cnf:/etc/mysql/my.cnf"
+            - "./mysql/data_dir:/var/lib/mysql"
     redis:
         container_name: redis
         image: redis
