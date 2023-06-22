@@ -16,6 +16,7 @@
 - memcached-3.2.0
 - nginx
 - composer
+- git
 
 # 使用
 ```
