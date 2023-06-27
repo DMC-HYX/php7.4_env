@@ -6,7 +6,9 @@ RUN apt-get update && apt-get install -y git nginx
     
 RUN apt-get install -y libmemcached-dev zlib1g-dev vim libzip-dev libpng-dev libjpeg-dev
 
-RUN docker-php-ext-configure gd --with-jpeg
+RUN apt-get install -y libfreetype6-dev
+
+RUN docker-php-ext-configure gd --with-jpeg --with-freetype
 RUN docker-php-ext-install pdo pdo_mysql zip gd
 
 # 安装 memcached 拓展
