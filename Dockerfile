@@ -9,7 +9,7 @@ RUN apt-get install -y libmemcached-dev zlib1g-dev vim libzip-dev libpng-dev lib
 RUN apt-get install -y libfreetype6-dev
 
 RUN docker-php-ext-configure gd --with-jpeg --with-freetype
-RUN docker-php-ext-install pdo pdo_mysql zip gd
+RUN docker-php-ext-install pdo pdo_mysql zip gd mysqli
 
 # 安装 memcached 拓展
 RUN pecl channel-update pecl.php.net && pecl install memcached-3.1.5 && docker-php-ext-enable memcached
