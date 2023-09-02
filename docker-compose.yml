@@ -11,6 +11,7 @@ services:
             - "./etc/nginx/conf.d:/etc/nginx/conf.d"
             - "./etc/nginx/nginx.conf:/etc/nginx/nginx.conf"
             - "./etc/redis/redis.conf:/etc/redis/redis.conf"
+            - "./etc/php/php.ini:/usr/local/etc/php/php.ini"
         build: 
             context: .
             dockerfile: Dockerfile
