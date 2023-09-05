@@ -23,6 +23,7 @@ services:
         environment:
             MYSQL_DATABASE: "laravel"
             MYSQL_ROOT_PASSWORD: "q0arAd9l1x"
+            TZ: "Asia/Shanghai"  # 设置时区
         volumes:
             - "./mysql/my.cnf:/etc/mysql/my.cnf"
             - "./mysql/data_dir:/var/lib/mysql"
