@@ -6,12 +6,13 @@ services:
         image: php:7.4.33-fpm
         ports: 
             - "80:80"
+            - "81:81"
+            - "82:82"
         volumes:
             - "./www:/var/www/html"
             - "./etc/nginx/conf.d:/etc/nginx/conf.d"
             - "./etc/nginx/nginx.conf:/etc/nginx/nginx.conf"
             - "./etc/redis/redis.conf:/etc/redis/redis.conf"
-            - "./etc/php/php.ini:/usr/local/etc/php/php.ini"
         build: 
             context: .
             dockerfile: Dockerfile
@@ -22,11 +23,12 @@ services:
             - "3306:3306"
         environment:
             MYSQL_DATABASE: "laravel"
-            MYSQL_ROOT_PASSWORD: "q0arAd9l1x"
+            MYSQL_ROOT_PASSWORD: "x"
             TZ: "Asia/Shanghai"  # 设置时区
         volumes:
             - "./mysql/my.cnf:/etc/mysql/my.cnf"
             - "./mysql/data_dir:/var/lib/mysql"
+        command: mysqld --sql-mode=""
     redis:
         container_name: redis
         image: redis
