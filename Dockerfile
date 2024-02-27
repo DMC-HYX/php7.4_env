@@ -22,7 +22,7 @@ COPY node-v13.11.0-linux-x64.tar.xz /
 RUN tar -xvf /node-v13.11.0-linux-x64.tar.xz
 RUN ln -s /node-v13.11.0-linux-x64/bin/node /usr/local/bin/node
 RUN ln -s /node-v13.11.0-linux-x64/bin/node /usr/local/bin/npm
-RUN rm no /node-v13.11.0-linux-x64.tar.xz
+# RUN rm no /node-v13.11.0-linux-x64.tar.xz
 
 # 安装 Composer
 RUN curl -o /usr/bin/composer https://mirrors.aliyun.com/composer/composer.phar \
