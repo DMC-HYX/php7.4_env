@@ -8,6 +8,7 @@ services:
             - "80:80"
             - "81:81"
             - "82:82"
+            - "9000:9000" # 开放php端口，开发使用为了本地不安装php检测代码作用
         volumes:
             - "./www:/var/www/html"
             - "./etc/nginx/conf.d:/etc/nginx/conf.d"
