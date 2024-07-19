@@ -21,8 +21,12 @@ RUN pecl install redis-5.3.7 && docker-php-ext-enable redis
 COPY node-v13.11.0-linux-x64.tar.xz /
 RUN tar -xvf /node-v13.11.0-linux-x64.tar.xz
 RUN ln -s /node-v13.11.0-linux-x64/bin/node /usr/local/bin/node
-RUN ln -s /node-v13.11.0-linux-x64/bin/node /usr/local/bin/npm
+RUN ln -s /node-v13.11.0-linux-x64/bin/npm /usr/local/bin/npm
 # RUN rm no /node-v13.11.0-linux-x64.tar.xz
+
+# 配置环境变量
+# echo "export PATH=/node-v13.11.0-linux-x64/bin:$PATH" >> ~/.bashrc
+# source ~/.bashrc
 
 # 安装 Composer
 RUN curl -o /usr/bin/composer https://mirrors.aliyun.com/composer/composer.phar \
